@@ -16,9 +16,7 @@
 
 * Find here our courseware content, access in any of the three following ways:
 
----
-
-## Read statically
+## 1. Read statically
 
 [![statically](figs/statically.PNG)](figs/statically.PNG)
 
@@ -26,9 +24,7 @@
 
 [ > Read statically online ](http://nbviewer.jupyter.org/github/{{ site.github.owner_name }}/{{ site.github.repository_name }}/blob/master/index.ipynb)
 
----
-
-## Read interactively
+## 2. Read interactively
 
 [![interactively](figs/interactively.PNG)](figs/interactively.PNG)
 
@@ -38,9 +34,7 @@
 
 [ >_ Main lectures - Read interactively](http://mybinder.org:/repo/{{ site.github.owner_name }}/{{ site.github.repository_name }})
 
----
-
-## Setup locally
+## 3. Setup locally
 
 [![locally](figs/locally.PNG)](figs/locally.PNG)
 
