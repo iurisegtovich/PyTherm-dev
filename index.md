@@ -8,11 +8,15 @@
 
 [Click to read more about the project >>](pages/about.md)
 
+---
+
 # Courseware content
 
 [![graphical abstract](figs/graphical-abstract.PNG)](figs/graphical-abstract.PNG)
 
 * Find here our courseware content, access in any of the three following ways:
+
+---
 
 ## Read statically
 
@@ -21,6 +25,8 @@
 * Reading our material statically in web page format is straightforward from your browser:
 
 [ > Read statically online ](http://nbviewer.jupyter.org/github/{{ site.github.owner_name }}/{{ site.github.repository_name }}/blob/master/index.ipynb)
+
+---
 
 ## Read interactively
 
@@ -31,6 +37,8 @@
 [< ! > Check the system status](http://mybinder.org/status)
 
 [ >_ Main lectures - Read interactively](http://mybinder.org:/repo/{{ site.github.owner_name }}/{{ site.github.repository_name }})
+
+---
 
 ## Setup locally
 
@@ -46,6 +54,8 @@
 
 [Click to read more about setting up locally >>](pages/setup.md)
 
+---
+
 # Models & algorithms laboratory
 
 [![M&A laboratory](figs/mnalab.PNG)](figs/mnalab.PNG)
@@ -53,6 +63,8 @@
 * On our models & algorithms laboratory, we intend to publish well documented and open source implementations of topics of interest in thermodynamics for intermediate level students in thermodynamics and in programming / scientific computing, with complete reference to original journal or textbook publications. This way objective quantitative comparison of classic, stated-of-art and newly proposed methodologies is possible.
 
 [Click to read more about our models and algorithms laboratory >>](pages/models-and-algorithms-laboratory.md)
+
+---
 
 # Scientific packages development incubator
 
@@ -62,6 +74,8 @@
 
 [Click to read more about our scientific packages development >>](pages/software-incubator.md)
 
+---
+
 # Get involved
 
 [![get involved](figs/github-scr.PNG)](figs/github-scr.PNG)
@@ -69,6 +83,8 @@
 * Ours is an open source project in early development stage hosted on the open source community of GitHub. In order to get involved, either reach out via e-mail, or sign up on GitHub and use their collaborative work tools.
 
 [Click to read more about getting involved >>](pages/getinvolved.md)
+
+---
 
 # Acknowledgements
 
