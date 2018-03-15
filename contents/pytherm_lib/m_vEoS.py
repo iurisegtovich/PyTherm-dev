@@ -132,6 +132,14 @@ class c_vEoS(): #Peng Robinson
         c1 = Aalpham/P - 3.*(bm**2) - 2.*bm*_R*T/P     # Coeficiente para V^1 para EoS PR
         c0 = (_R*T*bm**2)/P + bm**3 - Aalpham*bm/P    # Termo independente para EoS PR
         
+#        sigma=1+np.sqrt(2)
+#        epsilon=1-np.sqrt(2)
+#        c0 = -(bm**3)*sigma*epsilon + (-_R*T*sigma*epsilon*(bm**2)-bm*Aalpham)/P
+#        c1 = (bm**2)*(sigma*epsilon-epsilon-sigma) + ((_R*T)*(-sigma*bm-epsilon*bm) + Aalpham)/P
+#        c2 = epsilon*bm+sigma*bm-bm-_R*T/P
+#        c3 = 1.
+#        print("cs",c3,c2,c1,c0)
+        
         Vs=np.roots([c3,c2,c1,c0])
         Vs[np.logical_not(np.isreal(Vs))]=0.
         Vs=np.real(Vs)
@@ -146,7 +154,7 @@ class c_vEoS(): #Peng Robinson
         lnPhi = np.zeros(self.ncomp)
         for i in range(self.ncomp):
             lnPhi[i] = ( #multiline
-                (dbdn[i]/bm)*((P*V)/(_R*T)-1) #&
+                (dbdn[i]/bm)*((P*V)/(_R*T)-1.) #&
                 -np.log(P*(V-bm)/(_R*T)) #&
                 -(Aalpham/(_R*T))*qsi*((2.*dAalphadn[i]/Aalpham) #&
                 -(dbdn[i]/bm))
@@ -181,10 +189,12 @@ class c_vEoS(): #Peng Robinson
                     (Aalpha[i]*dAalphadT[j]+dAalphadT[i]*Aalpha[j])*
                     (1.-self.k[i,j])
                 )
+        #print(dAalphamdT)
         #numerical
         #AalphammaisT,_=self._f_Aalphamix(T+1e-3,x)
         #AalphammenosT,_=self._f_Aalphamix(T-1e-3,x)
         #dAalphamdT=(AalphammaisT-AalphammenosT)/(2.*1e-3)
+        #print(dAalphamdT)
         return dAalphamdT
 
     #other spec flashes
@@ -195,6 +205,7 @@ class c_vEoS(): #Peng Robinson
         Aalpham, _ = self._f_Aalphamix(T,x)
         qsi = (1./(bm*(self.epsilon-self.sigma)))*np.log((V+self.epsilon*bm)/(V+self.sigma*bm)) #again
         H_res = P*V - _R*T + (T*dAalphamdT-Aalpham)*qsi
+#        print(Aalpham)
         return H_res
 
     def f_S_res(self,T,V,x):
@@ -210,14 +221,14 @@ def test():
     import numpy as np
     ncomp=5
     cnames=np.array(["co2",     "benzene", "ethane", "ethanol", "methane"])
-    Tc = np.array([304.1, 562, 305.3, 513.9, 190.555]) #K
+    Tc = np.array([304.1, 562., 305.3, 513.9, 190.555]) #K
     Pc = np.array([73.8e5,    48.9e5, 48.714e5, 61.4e5, 45.95e5]) #Pa
     acentric = np.array([0.239,    0.212, 0.099, 0.644, 0.008]) #dimensionless
     k = np.array([[0,0.,0.,0.,0.],
-                                [0.,0,0.,0.,0.],
-                                [0.,0.,0,0.,0.],
-                                [0.,0.,0.,0,0.],
-                                [0.,0.,0.,0.,0],]) #dimensionless
+                  [0.,0,0.,0.,0.],
+                  [0.,0.,0,0.,0.],
+                  [0.,0.,0.,0,0.],
+                  [0.,0.,0.,0.,0],]) #dimensionless
     print("@ input/system")
     print("ncomp :",ncomp)
     print("cnames :",cnames)
